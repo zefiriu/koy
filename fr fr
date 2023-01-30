@@ -37,7 +37,7 @@ game:GetService("StarterGui"):SetCore(
 	}
 )
 
-loadstring(game:HttpGet("https://pastebin.com/raw/qExS3GvV"))();
+loadstring(game:HttpGet("https://pastebin.com/raw/aGpJmxDd"))();
 
 
 
